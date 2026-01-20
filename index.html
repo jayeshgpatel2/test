@@ -21,74 +21,26 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
         }
 
-        header {
-            background: linear-gradient(135deg, #232526 0%, #414345 100%);
-            color: white;
+        .header {
+            background: white;
             padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
             text-align: center;
         }
 
-        header h1 {
+        .header h1 {
+            color: #333;
             font-size: 2.5em;
             margin-bottom: 10px;
         }
 
-        header p {
-            opacity: 0.9;
+        .header p {
+            color: #666;
             font-size: 1.1em;
-        }
-
-        .nav-tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-bottom: 2px solid #dee2e6;
-            overflow-x: auto;
-        }
-
-        .nav-tab {
-            padding: 15px 25px;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-size: 1em;
-            font-weight: 500;
-            color: #495057;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .nav-tab:hover {
-            background: #e9ecef;
-        }
-
-        .nav-tab.active {
-            background: white;
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .content {
-            padding: 30px;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .stats-grid {
@@ -99,114 +51,180 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: white;
             padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .stat-card h3 {
+            color: #666;
             font-size: 0.9em;
-            opacity: 0.9;
-            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         .stat-card .value {
+            color: #333;
             font-size: 2.5em;
             font-weight: bold;
             margin-bottom: 5px;
         }
 
         .stat-card .label {
-            opacity: 0.8;
-            font-size: 0.9em;
+            color: #999;
+            font-size: 0.85em;
         }
 
-        .filters {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
+        .tabs {
+            background: white;
+            border-radius: 12px;
+            padding: 10px;
             margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             display: flex;
-            gap: 15px;
             flex-wrap: wrap;
-            align-items: center;
+            gap: 10px;
         }
 
-        .filters label {
-            font-weight: 500;
-        }
-
-        .filters select,
-        .filters input {
-            padding: 10px 15px;
-            border: 1px solid #ced4da;
-            border-radius: 6px;
-            font-size: 1em;
-            margin-left: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 20px;
             border: none;
-            border-radius: 6px;
+            background: #f0f0f0;
+            color: #666;
             font-size: 1em;
+            font-weight: 600;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        .btn-primary {
+        .tab-button:hover {
+            background: #e0e0e0;
+        }
+
+        .tab-button.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
         }
 
-        .btn-secondary {
-            background: #6c757d;
+        .controls label {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .controls input,
+        .controls select {
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .controls input:focus,
+        .controls select:focus {
+            border-color: #667eea;
+        }
+
+        .controls button {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
 
-        .btn-secondary:hover {
-            background: #5a6268;
+        .controls button:hover {
+            transform: scale(1.05);
+        }
+
+        .controls button:active {
+            transform: scale(0.98);
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-height: 400px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        .spinner {
+            border: 4px solid #f0f0f0;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
         }
 
         thead {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
 
         th {
             padding: 15px;
             text-align: left;
             font-weight: 600;
-            color: #495057;
-            border-bottom: 2px solid #dee2e6;
+            font-size: 0.9em;
+            text-transform: uppercase;
         }
 
         td {
             padding: 15px;
             border-bottom: 1px solid #f0f0f0;
+            color: #333;
         }
 
-        tr:hover {
-            background: #f8f9fa;
+        tbody tr:hover {
+            background: #f9f9f9;
         }
 
         .badge {
@@ -214,7 +232,7 @@
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.85em;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .badge-success {
@@ -237,92 +255,18 @@
             color: #0c5460;
         }
 
-        .loading {
-            text-align: center;
-            padding: 50px;
-            font-size: 1.2em;
-            color: #667eea;
-        }
-
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 20px 0;
-        }
-
-        .order-detail-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .order-detail-card h3 {
-            margin-bottom: 15px;
-            color: #495057;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .detail-row:last-child {
-            border-bottom: none;
-        }
-
-        .detail-label {
-            font-weight: 600;
-            color: #6c757d;
-        }
-
-        .detail-value {
-            color: #212529;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #6c757d;
-        }
-
-        .empty-state svg {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-            opacity: 0.3;
-        }
-
-        .view-btn {
-            padding: 6px 12px;
+        .btn-view {
+            padding: 8px 16px;
             background: #667eea;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 0.9em;
+            transition: background 0.3s ease;
         }
 
-        .view-btn:hover {
+        .btn-view:hover {
             background: #5568d3;
         }
 
@@ -333,7 +277,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0,0,0,0.7);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -345,633 +289,539 @@
 
         .modal-content {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
+            padding: 40px;
+            border-radius: 15px;
             max-width: 800px;
             max-height: 90vh;
             overflow-y: auto;
-            margin: 20px;
             position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         .modal-close {
             position: absolute;
             top: 15px;
-            right: 15px;
-            font-size: 28px;
+            right: 20px;
+            font-size: 2em;
+            color: #999;
             cursor: pointer;
-            color: #6c757d;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
         }
 
         .modal-close:hover {
-            color: #212529;
+            color: #333;
+        }
+
+        .detail-section {
+            margin-bottom: 25px;
+        }
+
+        .detail-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .detail-item {
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .detail-item strong {
+            display: block;
+            color: #666;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .detail-item span {
+            color: #333;
+            font-size: 1em;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f5c6cb;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px;
+            color: #999;
+        }
+
+        .empty-state svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .search-box {
+            width: 300px;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
         }
 
         @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
 
-            .filters {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                min-width: 100%;
+            }
+
+            .controls {
                 flex-direction: column;
                 align-items: stretch;
             }
 
+            .controls input,
+            .controls select,
+            .search-box {
+                width: 100%;
+            }
+
             table {
-                font-size: 0.9em;
+                font-size: 0.85em;
             }
 
             th, td {
-                padding: 10px;
+                padding: 10px 5px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Amazon Order Reviews Dashboard</h1>
-            <p>Monitor and manage product review solicitations</p>
-        </header>
-
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</button>
-            <button class="nav-tab" onclick="switchTab('eligible')">Eligible Orders</button>
-            <button class="nav-tab" onclick="switchTab('ineligible')">Ineligible Orders</button>
-            <button class="nav-tab" onclick="switchTab('all')">All Orders</button>
-            <button class="nav-tab" onclick="switchTab('solicitations')">Solicitations</button>
-            <button class="nav-tab" onclick="switchTab('pending')">Pending Requests</button>
+        <div class="header">
+            <h1>📦 Amazon Order Reviews Dashboard</h1>
+            <p>Manage and track order reviews, solicitations, and customer feedback</p>
         </div>
 
-        <div class="content">
-            <!-- Dashboard Tab -->
-            <div id="dashboard" class="tab-content active">
-                <h2 style="margin-bottom: 20px;">Overview Statistics</h2>
-                <div id="stats-container">
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        Loading statistics...
-                    </div>
-                </div>
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <h3>Total Shipments</h3>
+                <div class="value" id="totalShipments">-</div>
+                <div class="label">All orders</div>
             </div>
-
-            <!-- Eligible Orders Tab -->
-            <div id="eligible" class="tab-content">
-                <h2 style="margin-bottom: 20px;">Eligible Orders</h2>
-                <div class="filters">
-                    <label>Limit:
-                        <select id="eligible-limit">
-                            <option value="25">25</option>
-                            <option value="50" selected>50</option>
-                            <option value="100">100</option>
-                            <option value="200">200</option>
-                        </select>
-                    </label>
-                    <button class="btn btn-primary" onclick="loadEligibleOrders()">Load Orders</button>
-                </div>
-                <div id="eligible-container">
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        Loading eligible orders...
-                    </div>
-                </div>
+            <div class="stat-card">
+                <h3>Eligible Orders</h3>
+                <div class="value" id="eligibleOrders">-</div>
+                <div class="label">Ready for review</div>
             </div>
-
-            <!-- Ineligible Orders Tab -->
-            <div id="ineligible" class="tab-content">
-                <h2 style="margin-bottom: 20px;">Ineligible Orders</h2>
-                <div class="filters">
-                    <label>Reason:
-                        <select id="ineligible-reason">
-                            <option value="">All</option>
-                            <option value="recent">Too Recent</option>
-                            <option value="returned">Returned Items</option>
-                        </select>
-                    </label>
-                    <label>Limit:
-                        <select id="ineligible-limit">
-                            <option value="25">25</option>
-                            <option value="50" selected>50</option>
-                            <option value="100">100</option>
-                        </select>
-                    </label>
-                    <button class="btn btn-primary" onclick="loadIneligibleOrders()">Load Orders</button>
-                </div>
-                <div id="ineligible-container">
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        Loading ineligible orders...
-                    </div>
-                </div>
+            <div class="stat-card">
+                <h3>Solicitations Sent</h3>
+                <div class="value" id="solicitationsSent">-</div>
+                <div class="label">Review requests</div>
             </div>
-
-            <!-- All Orders Tab -->
-            <div id="all" class="tab-content">
-                <h2 style="margin-bottom: 20px;">All Shipments</h2>
-                <div class="filters">
-                    <label>Limit:
-                        <select id="all-limit">
-                            <option value="50">50</option>
-                            <option value="100" selected>100</option>
-                            <option value="200">200</option>
-                        </select>
-                    </label>
-                    <button class="btn btn-primary" onclick="loadAllOrders()">Load Orders</button>
-                </div>
-                <div id="all-container">
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        Loading all orders...
-                    </div>
-                </div>
+            <div class="stat-card">
+                <h3>Pending Requests</h3>
+                <div class="value" id="pendingRequests">-</div>
+                <div class="label">Not yet sent</div>
             </div>
-
-            <!-- Solicitations Tab -->
-            <div id="solicitations" class="tab-content">
-                <h2 style="margin-bottom: 20px;">Solicitation Status</h2>
-                <div class="filters">
-                    <label>Status:
-                        <select id="solicitation-status">
-                            <option value="sent" selected>Sent</option>
-                            <option value="failed">Failed</option>
-                            <option value="pending">Pending</option>
-                        </select>
-                    </label>
-                    <label>Limit:
-                        <select id="solicitation-limit">
-                            <option value="50">50</option>
-                            <option value="100" selected>100</option>
-                            <option value="200">200</option>
-                        </select>
-                    </label>
-                    <button class="btn btn-primary" onclick="loadSolicitations()">Load Solicitations</button>
-                </div>
-                <div id="solicitations-container">
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        Loading solicitations...
-                    </div>
-                </div>
+            <div class="stat-card">
+                <h3>Return Rate</h3>
+                <div class="value" id="returnRate">-</div>
+                <div class="label">Customer returns</div>
             </div>
+            <div class="stat-card">
+                <h3>Eligibility Rate</h3>
+                <div class="value" id="eligibilityRate">-</div>
+                <div class="label">Qualification %</div>
+            </div>
+        </div>
 
-            <!-- Pending Solicitations Tab -->
-            <div id="pending" class="tab-content">
-                <h2 style="margin-bottom: 20px;">Pending Review Requests</h2>
-                <div class="filters">
-                    <label>Limit:
-                        <select id="pending-limit">
-                            <option value="25">25</option>
-                            <option value="50" selected>50</option>
-                            <option value="100">100</option>
-                        </select>
-                    </label>
-                    <button class="btn btn-primary" onclick="loadPendingSolicitations()">Load Pending</button>
-                </div>
-                <div id="pending-container">
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        Loading pending solicitations...
-                    </div>
-                </div>
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab('eligible')">✅ Eligible Orders</button>
+            <button class="tab-button" onclick="switchTab('ineligible')">❌ Ineligible Orders</button>
+            <button class="tab-button" onclick="switchTab('all')">📋 All Shipments</button>
+            <button class="tab-button" onclick="switchTab('solicitations')">📧 Solicitations</button>
+            <button class="tab-button" onclick="switchTab('pending')">⏳ Pending Requests</button>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="searchBox" class="search-box" placeholder="🔍 Search orders...">
+            
+            <label for="limitSelect">Show:</label>
+            <select id="limitSelect" onchange="loadCurrentTab()">
+                <option value="25">25</option>
+                <option value="50" selected>50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+            </select>
+
+            <label for="reasonFilter">Filter:</label>
+            <select id="reasonFilter" style="display:none;" onchange="loadCurrentTab()">
+                <option value="">All</option>
+                <option value="recent">Recent Orders</option>
+                <option value="returned">Returned Items</option>
+            </select>
+
+            <label for="statusFilter">Status:</label>
+            <select id="statusFilter" style="display:none;" onchange="loadCurrentTab()">
+                <option value="sent">Sent</option>
+                <option value="failed">Failed</option>
+                <option value="pending">Pending</option>
+            </select>
+
+            <button onclick="loadCurrentTab()">🔄 Refresh</button>
+            <button onclick="exportToCSV()">📥 Export CSV</button>
+        </div>
+
+        <div class="content" id="content">
+            <div class="loading">
+                <div class="spinner"></div>
+                Loading data...
             </div>
         </div>
     </div>
 
-    <!-- Order Detail Modal -->
-    <div id="orderModal" class="modal">
+    <div class="modal" id="orderModal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <div id="modal-body">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    Loading order details...
-                </div>
-            </div>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalContent"></div>
         </div>
     </div>
 
     <script>
-        const API_BASE = 'https://p25eunlfik.execute-api.ap-south-1.amazonaws.com/prod';
+        const API_BASE_URL = 'https://p25eunlfik.execute-api.ap-south-1.amazonaws.com';
+        let currentTab = 'eligible';
+        let currentData = [];
+        let allData = [];
 
-        // Tab switching
-        function switchTab(tabName) {
-            // Update tab buttons
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            // Update tab content
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById(tabName).classList.add('active');
-
-            // Load data for the tab if needed
-            if (tabName === 'dashboard') {
-                loadStats();
-            }
-        }
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStats();
+            loadCurrentTab();
+            
+            // Search functionality
+            document.getElementById('searchBox').addEventListener('input', filterData);
+        });
 
         // Load statistics
         async function loadStats() {
-            const container = document.getElementById('stats-container');
             try {
-                const response = await fetch(`${API_BASE}/orders/stats`);
+                const response = await fetch(`${API_BASE_URL}/orders/stats`);
                 const data = await response.json();
-
-                container.innerHTML = `
-                    <div class="stats-grid">
-                        <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <h3>Total Shipments</h3>
-                            <div class="value">${data.total_shipments}</div>
-                            <div class="label">All orders shipped</div>
-                        </div>
-                        <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <h3>Eligible Orders</h3>
-                            <div class="value">${data.eligible_orders}</div>
-                            <div class="label">Ready for solicitation</div>
-                        </div>
-                        <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                            <h3>Ineligible Orders</h3>
-                            <div class="value">${data.ineligible_orders}</div>
-                            <div class="label">Cannot solicit</div>
-                        </div>
-                        <div class="stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <h3>Solicitations Sent</h3>
-                            <div class="value">${data.solicitations_sent}</div>
-                            <div class="label">Reviews requested</div>
-                        </div>
-                        <div class="stat-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                            <h3>Pending Solicitations</h3>
-                            <div class="value">${data.solicitations_pending}</div>
-                            <div class="label">Awaiting request</div>
-                        </div>
-                        <div class="stat-card" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
-                            <h3>Failed Solicitations</h3>
-                            <div class="value">${data.solicitations_failed}</div>
-                            <div class="label">Errors occurred</div>
-                        </div>
-                        <div class="stat-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333;">
-                            <h3>Eligibility Rate</h3>
-                            <div class="value">${data.eligibility_rate}</div>
-                            <div class="label">Orders eligible</div>
-                        </div>
-                        <div class="stat-card" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333;">
-                            <h3>Return Rate</h3>
-                            <div class="value">${data.return_rate}</div>
-                            <div class="label">Orders returned</div>
-                        </div>
-                        <div class="stat-card" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333;">
-                            <h3>Solicitation Rate</h3>
-                            <div class="value">${data.solicitation_rate}</div>
-                            <div class="label">Of eligible orders</div>
-                        </div>
-                    </div>
-                `;
+                
+                document.getElementById('totalShipments').textContent = data.total_shipments || 0;
+                document.getElementById('eligibleOrders').textContent = data.eligible_orders || 0;
+                document.getElementById('solicitationsSent').textContent = data.solicitations_sent || 0;
+                document.getElementById('pendingRequests').textContent = data.solicitations_pending || 0;
+                document.getElementById('returnRate').textContent = data.return_rate || '0%';
+                document.getElementById('eligibilityRate').textContent = data.eligibility_rate || '0%';
             } catch (error) {
-                container.innerHTML = `<div class="error">Error loading statistics: ${error.message}</div>`;
+                console.error('Error loading stats:', error);
             }
         }
 
-        // Load eligible orders
-        async function loadEligibleOrders() {
-            const container = document.getElementById('eligible-container');
-            const limit = document.getElementById('eligible-limit').value;
+        // Switch tabs
+        function switchTab(tab) {
+            currentTab = tab;
+            
+            // Update active button
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide filters
+            document.getElementById('reasonFilter').style.display = tab === 'ineligible' ? 'inline-block' : 'none';
+            document.getElementById('statusFilter').style.display = tab === 'solicitations' ? 'inline-block' : 'none';
+            
+            loadCurrentTab();
+        }
 
-            container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading eligible orders...</div>';
-
+        // Load current tab data
+        async function loadCurrentTab() {
+            const content = document.getElementById('content');
+            content.innerHTML = '<div class="loading"><div class="spinner"></div>Loading data...</div>';
+            
             try {
-                const response = await fetch(`${API_BASE}/orders/eligible?limit=${limit}`);
-                const data = await response.json();
-
-                if (data.orders.length === 0) {
-                    container.innerHTML = '<div class="empty-state"><h3>No eligible orders found</h3></div>';
-                    return;
+                const limit = document.getElementById('limitSelect').value;
+                let url = `${API_BASE_URL}/orders/${currentTab}?limit=${limit}`;
+                
+                if (currentTab === 'ineligible') {
+                    const reason = document.getElementById('reasonFilter').value;
+                    if (reason) url += `&reason=${reason}`;
                 }
-
-                container.innerHTML = `
-                    <p style="margin-bottom: 15px;"><strong>Total:</strong> ${data.total} eligible orders</p>
-                    ${renderOrdersTable(data.orders)}
-                `;
-            } catch (error) {
-                container.innerHTML = `<div class="error">Error loading orders: ${error.message}</div>`;
-            }
-        }
-
-        // Load ineligible orders
-        async function loadIneligibleOrders() {
-            const container = document.getElementById('ineligible-container');
-            const limit = document.getElementById('ineligible-limit').value;
-            const reason = document.getElementById('ineligible-reason').value;
-
-            container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading ineligible orders...</div>';
-
-            try {
-                let url = `${API_BASE}/orders/ineligible?limit=${limit}`;
-                if (reason) url += `&reason=${reason}`;
-
+                
+                if (currentTab === 'solicitations') {
+                    const status = document.getElementById('statusFilter').value;
+                    url += `&status=${status}`;
+                }
+                
                 const response = await fetch(url);
                 const data = await response.json();
-
-                if (data.orders.length === 0) {
-                    container.innerHTML = '<div class="empty-state"><h3>No ineligible orders found</h3></div>';
-                    return;
-                }
-
-                container.innerHTML = `
-                    <p style="margin-bottom: 15px;"><strong>Total:</strong> ${data.total} ineligible orders</p>
-                    ${renderOrdersTable(data.orders)}
-                `;
+                
+                allData = data.orders || [];
+                currentData = allData;
+                
+                displayOrders(currentData);
             } catch (error) {
-                container.innerHTML = `<div class="error">Error loading orders: ${error.message}</div>`;
+                content.innerHTML = `<div class="error-message">Error loading data: ${error.message}</div>`;
             }
         }
 
-        // Load all orders
-        async function loadAllOrders() {
-            const container = document.getElementById('all-container');
-            const limit = document.getElementById('all-limit').value;
-
-            container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading all orders...</div>';
-
-            try {
-                const response = await fetch(`${API_BASE}/orders/all?limit=${limit}`);
-                const data = await response.json();
-
-                if (data.orders.length === 0) {
-                    container.innerHTML = '<div class="empty-state"><h3>No orders found</h3></div>';
-                    return;
-                }
-
-                container.innerHTML = `
-                    <p style="margin-bottom: 15px;"><strong>Total:</strong> ${data.total} shipments</p>
-                    ${renderOrdersTable(data.orders, true)}
+        // Display orders in table
+        function displayOrders(orders) {
+            const content = document.getElementById('content');
+            
+            if (!orders || orders.length === 0) {
+                content.innerHTML = `
+                    <div class="empty-state">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                        <h3>No orders found</h3>
+                        <p>Try adjusting your filters or search terms</p>
+                    </div>
                 `;
-            } catch (error) {
-                container.innerHTML = `<div class="error">Error loading orders: ${error.message}</div>`;
+                return;
             }
-        }
-
-        // Load solicitations
-        async function loadSolicitations() {
-            const container = document.getElementById('solicitations-container');
-            const limit = document.getElementById('solicitation-limit').value;
-            const status = document.getElementById('solicitation-status').value;
-
-            container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading solicitations...</div>';
-
-            try {
-                const response = await fetch(`${API_BASE}/orders/solicitations?status=${status}&limit=${limit}`);
-                const data = await response.json();
-
-                if (data.orders.length === 0) {
-                    container.innerHTML = '<div class="empty-state"><h3>No solicitations found</h3></div>';
-                    return;
-                }
-
-                container.innerHTML = `
-                    <p style="margin-bottom: 15px;"><strong>Total:</strong> ${data.total} ${status} solicitations</p>
-                    ${renderOrdersTable(data.orders, false, true)}
-                `;
-            } catch (error) {
-                container.innerHTML = `<div class="error">Error loading solicitations: ${error.message}</div>`;
-            }
-        }
-
-        // Load pending solicitations
-        async function loadPendingSolicitations() {
-            const container = document.getElementById('pending-container');
-            const limit = document.getElementById('pending-limit').value;
-
-            container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading pending solicitations...</div>';
-
-            try {
-                const response = await fetch(`${API_BASE}/orders/pending-solicitations?limit=${limit}`);
-                const data = await response.json();
-
-                if (data.orders.length === 0) {
-                    container.innerHTML = '<div class="empty-state"><h3>No pending solicitations found</h3></div>';
-                    return;
-                }
-
-                container.innerHTML = `
-                    <p style="margin-bottom: 15px;">${data.message}</p>
-                    ${renderOrdersTable(data.orders)}
-                `;
-            } catch (error) {
-                container.innerHTML = `<div class="error">Error loading pending solicitations: ${error.message}</div>`;
-            }
-        }
-
-        // Render orders table
-        function renderOrdersTable(orders, showReturns = false, showSolicitation = false) {
-            let headers = `
-                <th>Order ID</th>
-                <th>Product</th>
-                <th>SKU</th>
-                <th>Price</th>
-                <th>Location</th>
-                <th>Purchase Date</th>
-                <th>ETA</th>
-                <th>Status</th>
-            `;
-
-            if (showReturns) {
-                headers += '<th>Returns/Replacements</th>';
-            }
-
-            if (showSolicitation) {
-                headers += '<th>Solicitation</th>';
-            }
-
-            headers += '<th>Actions</th>';
-
-            let rows = orders.map(order => {
-                let statusBadge = order.eligible
-                    ? '<span class="badge badge-success">Eligible</span>'
-                    : '<span class="badge badge-danger">Ineligible</span>';
-
-                let returnInfo = '';
-                if (showReturns) {
-                    if (order.has_return) {
-                        returnInfo = `<span class="badge badge-warning">Returned</span>`;
-                    } else if (order.has_replacement) {
-                        returnInfo = `<span class="badge badge-info">Replaced</span>`;
-                    } else {
-                        returnInfo = '-';
-                    }
-                }
-
-                let solicitationInfo = '';
-                if (showSolicitation) {
-                    if (order.solicitation_sent) {
-                        solicitationInfo = `<span class="badge badge-success">Sent</span><br><small>${order.solicitation_date || 'N/A'}</small>`;
-                    } else if (order.solicitation_error) {
-                        solicitationInfo = `<span class="badge badge-danger">Failed</span><br><small>${order.solicitation_error}</small>`;
-                    } else {
-                        solicitationInfo = '<span class="badge badge-warning">Pending</span>';
-                    }
-                }
-
-                return `
-                    <tr>
-                        <td><strong>${order.order_id}</strong></td>
-                        <td style="max-width: 200px;">${truncate(order.product_name, 40)}</td>
-                        <td>${order.sku}</td>
-                        <td>₹${order.price}</td>
-                        <td>${order.city}, ${order.state}</td>
-                        <td>${order.purchase_date || 'N/A'}</td>
-                        <td>${order.eta || 'N/A'}</td>
-                        <td>${statusBadge}</td>
-                        ${showReturns ? `<td>${returnInfo}</td>` : ''}
-                        ${showSolicitation ? `<td>${solicitationInfo}</td>` : ''}
-                        <td><button class="view-btn" onclick="viewOrderDetails('${order.order_id}')">View</button></td>
-                    </tr>
-                `;
-            }).join('');
-
-            return `
+            
+            let html = `
                 <table>
                     <thead>
-                        <tr>${headers}</tr>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Location</th>
+                            <th>Purchase Date</th>
+                            <th>ETA</th>
+                            <th>Status</th>
+                            ${currentTab === 'solicitations' || currentTab === 'pending' ? '<th>Solicitation</th>' : ''}
+                            <th>Actions</th>
+                        </tr>
                     </thead>
-                    <tbody>${rows}</tbody>
+                    <tbody>
+            `;
+            
+            orders.forEach(order => {
+                const eligibleBadge = order.eligible ? 
+                    '<span class="badge badge-success">Eligible</span>' : 
+                    '<span class="badge badge-danger">Ineligible</span>';
+                
+                const solicitationBadge = order.solicitation_sent ? 
+                    '<span class="badge badge-success">✓ Sent</span>' :
+                    order.solicitation_error ?
+                    '<span class="badge badge-danger">✗ Failed</span>' :
+                    '<span class="badge badge-warning">Pending</span>';
+                
+                html += `
+                    <tr>
+                        <td><strong>${order.order_id}</strong></td>
+                        <td>
+                            <div style="max-width: 250px;">
+                                ${order.product_name || 'N/A'}<br>
+                                <small style="color: #999;">SKU: ${order.sku}</small>
+                            </div>
+                        </td>
+                        <td>$${parseFloat(order.price || 0).toFixed(2)}</td>
+                        <td>${order.city}, ${order.state}</td>
+                        <td>${formatDate(order.purchase_date)}</td>
+                        <td>${formatDate(order.eta)}</td>
+                        <td>${eligibleBadge}</td>
+                        ${currentTab === 'solicitations' || currentTab === 'pending' ? `<td>${solicitationBadge}</td>` : ''}
+                        <td>
+                            <button class="btn-view" onclick="viewOrderDetails('${order.order_id}')">
+                                View Details
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            html += `
+                    </tbody>
                 </table>
             `;
+            
+            content.innerHTML = html;
         }
 
         // View order details
         async function viewOrderDetails(orderId) {
             const modal = document.getElementById('orderModal');
-            const modalBody = document.getElementById('modal-body');
-
+            const modalContent = document.getElementById('modalContent');
+            
+            modalContent.innerHTML = '<div class="loading"><div class="spinner"></div>Loading details...</div>';
             modal.classList.add('active');
-            modalBody.innerHTML = '<div class="loading"><div class="spinner"></div>Loading order details...</div>';
-
+            
             try {
-                const response = await fetch(`${API_BASE}/orders/${orderId}`);
+                const response = await fetch(`${API_BASE_URL}/orders/${orderId}`);
                 const data = await response.json();
-
-                modalBody.innerHTML = `
+                
+                let html = `
                     <h2>Order Details: ${data.order_id}</h2>
-
-                    <div class="order-detail-card">
+                    
+                    <div class="detail-section">
                         <h3>Shipment Information</h3>
-                        <div class="detail-row">
-                            <span class="detail-label">Product:</span>
-                            <span class="detail-value">${data.shipment.product_name}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">SKU:</span>
-                            <span class="detail-value">${data.shipment.sku}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Quantity:</span>
-                            <span class="detail-value">${data.shipment.quantity}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Price:</span>
-                            <span class="detail-value">₹${data.shipment.price}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Tax:</span>
-                            <span class="detail-value">₹${data.shipment.item_tax}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Shipping Price:</span>
-                            <span class="detail-value">₹${data.shipment.shipping_price}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Location:</span>
-                            <span class="detail-value">${data.shipment.city}, ${data.shipment.state}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Carrier:</span>
-                            <span class="detail-value">${data.shipment.carrier || 'N/A'}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Tracking:</span>
-                            <span class="detail-value">${data.shipment.tracking || 'N/A'}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Purchase Date:</span>
-                            <span class="detail-value">${data.shipment.purchase_date}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Shipment Date:</span>
-                            <span class="detail-value">${data.shipment.shipment_date}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">ETA:</span>
-                            <span class="detail-value">${data.shipment.eta}</span>
-                        </div>
-                    </div>
-
-                    <div class="order-detail-card">
-                        <h3>Review Solicitation Status</h3>
-                        <div class="detail-row">
-                            <span class="detail-label">Eligible for Solicitation:</span>
-                            <span class="detail-value">${data.eligible ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-danger">No</span>'}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Solicitation Sent:</span>
-                            <span class="detail-value">${data.solicitation_sent ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-warning">No</span>'}</span>
-                        </div>
-                        ${data.solicitation_date ? `
-                        <div class="detail-row">
-                            <span class="detail-label">Solicitation Date:</span>
-                            <span class="detail-value">${data.solicitation_date}</span>
-                        </div>
-                        ` : ''}
-                        ${data.solicitation_error ? `
-                        <div class="detail-row">
-                            <span class="detail-label">Error:</span>
-                            <span class="detail-value" style="color: #721c24;">${data.solicitation_error}</span>
-                        </div>
-                        ` : ''}
-                    </div>
-
-                    ${data.returns.length > 0 ? `
-                    <div class="order-detail-card">
-                        <h3>Returns (${data.returns.length})</h3>
-                        ${data.returns.map(ret => `
-                            <div style="margin-bottom: 10px; padding: 10px; background: white; border-radius: 4px;">
-                                <div><strong>Date:</strong> ${ret.return_date}</div>
-                                <div><strong>Reason:</strong> ${ret.reason}</div>
-                                <div><strong>Status:</strong> ${ret.status}</div>
-                                <div><strong>SKU:</strong> ${ret.sku}</div>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <strong>Product</strong>
+                                <span>${data.shipment.product_name || 'N/A'}</span>
                             </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-
-                    ${data.replacements.length > 0 ? `
-                    <div class="order-detail-card">
-                        <h3>Replacements (${data.replacements.length})</h3>
-                        ${data.replacements.map(rep => `
-                            <div style="margin-bottom: 10px; padding: 10px; background: white; border-radius: 4px;">
-                                <div><strong>Replacement Date:</strong> ${rep.replacement_date}</div>
-                                <div><strong>Original Order Date:</strong> ${rep.original_order_date}</div>
-                                <div><strong>Reason:</strong> ${rep.reason}</div>
-                                <div><strong>SKU:</strong> ${rep.sku}</div>
+                            <div class="detail-item">
+                                <strong>SKU</strong>
+                                <span>${data.shipment.sku || 'N/A'}</span>
                             </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-
-                    <div class="order-detail-card">
-                        <h3>Event Timeline</h3>
-                        ${data.events.map(event => `
-                            <div style="margin-bottom: 10px; padding: 10px; background: white; border-radius: 4px;">
-                                <div><strong>${event.type}</strong> - ${event.date || 'N/A'}</div>
-                                <div><small>SKU: ${event.sku}</small></div>
+                            <div class="detail-item">
+                                <strong>Quantity</strong>
+                                <span>${data.shipment.quantity || 0}</span>
                             </div>
-                        `).join('')}
+                            <div class="detail-item">
+                                <strong>Price</strong>
+                                <span>$${parseFloat(data.shipment.price || 0).toFixed(2)}</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Purchase Date</strong>
+                                <span>${formatDate(data.shipment.purchase_date)}</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Shipment Date</strong>
+                                <span>${formatDate(data.shipment.shipment_date)}</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>ETA</strong>
+                                <span>${formatDate(data.shipment.eta)}</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Carrier</strong>
+                                <span>${data.shipment.carrier || 'N/A'}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Shipping Address</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <strong>City</strong>
+                                <span>${data.shipment.city || 'N/A'}</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>State</strong>
+                                <span>${data.shipment.state || 'N/A'}</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Tracking</strong>
+                                <span>${data.shipment.tracking || 'N/A'}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Solicitation Status</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <strong>Eligible</strong>
+                                <span>${data.eligible ? '✅ Yes' : '❌ No'}</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Solicitation Sent</strong>
+                                <span>${data.solicitation_sent ? '✅ Yes' : '❌ No'}</span>
+                            </div>
+                            ${data.solicitation_date ? `
+                                <div class="detail-item">
+                                    <strong>Sent Date</strong>
+                                    <span>${formatDate(data.solicitation_date)}</span>
+                                </div>
+                            ` : ''}
+                            ${data.solicitation_error ? `
+                                <div class="detail-item" style="grid-column: 1 / -1;">
+                                    <strong>Error</strong>
+                                    <span style="color: #dc3545;">${data.solicitation_error}</span>
+                                </div>
+                            ` : ''}
+                        </div>
                     </div>
                 `;
+                
+                if (data.returns && data.returns.length > 0) {
+                    html += `
+                        <div class="detail-section">
+                            <h3>Returns (${data.returns.length})</h3>
+                            ${data.returns.map(ret => `
+                                <div class="detail-grid">
+                                    <div class="detail-item">
+                                        <strong>Return Date</strong>
+                                        <span>${formatDate(ret.return_date)}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Reason</strong>
+                                        <span>${ret.reason}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Status</strong>
+                                        <span>${ret.status}</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+                
+                if (data.replacements && data.replacements.length > 0) {
+                    html += `
+                        <div class="detail-section">
+                            <h3>Replacements (${data.replacements.length})</h3>
+                            ${data.replacements.map(rep => `
+                                <div class="detail-grid">
+                                    <div class="detail-item">
+                                        <strong>Replacement Date</strong>
+                                        <span>${formatDate(rep.replacement_date)}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Reason</strong>
+                                        <span>${rep.reason}</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+                
+                modalContent.innerHTML = html;
             } catch (error) {
-                modalBody.innerHTML = `<div class="error">Error loading order details: ${error.message}</div>`;
+                modalContent.innerHTML = `<div class="error-message">Error loading order details: ${error.message}</div>`;
             }
         }
 
@@ -980,24 +830,81 @@
             document.getElementById('orderModal').classList.remove('active');
         }
 
-        // Helper function to truncate text
-        function truncate(text, length) {
-            if (!text) return 'N/A';
-            return text.length > length ? text.substring(0, length) + '...' : text;
+        // Filter data based on search
+        function filterData() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            
+            if (!searchTerm) {
+                currentData = allData;
+            } else {
+                currentData = allData.filter(order => 
+                    order.order_id.toLowerCase().includes(searchTerm) ||
+                    (order.product_name && order.product_name.toLowerCase().includes(searchTerm)) ||
+                    (order.sku && order.sku.toLowerCase().includes(searchTerm)) ||
+                    (order.city && order.city.toLowerCase().includes(searchTerm)) ||
+                    (order.state && order.state.toLowerCase().includes(searchTerm))
+                );
+            }
+            
+            displayOrders(currentData);
         }
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('orderModal');
-            if (event.target === modal) {
-                closeModal();
+        // Export to CSV
+        function exportToCSV() {
+            if (!currentData || currentData.length === 0) {
+                alert('No data to export');
+                return;
+            }
+            
+            const headers = ['Order ID', 'SKU', 'Product', 'Price', 'City', 'State', 'Purchase Date', 'Shipment Date', 'ETA', 'Eligible', 'Solicitation Sent'];
+            const rows = currentData.map(order => [
+                order.order_id,
+                order.sku,
+                order.product_name,
+                order.price,
+                order.city,
+                order.state,
+                order.purchase_date,
+                order.shipment_date,
+                order.eta,
+                order.eligible,
+                order.solicitation_sent
+            ]);
+            
+            let csv = headers.join(',') + '\n';
+            rows.forEach(row => {
+                csv += row.map(cell => `"${cell}"`).join(',') + '\n';
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `orders_${currentTab}_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Format date helper
+        function formatDate(dateStr) {
+            if (!dateStr) return 'N/A';
+            try {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric' 
+                });
+            } catch (e) {
+                return dateStr;
             }
         }
 
-        // Initial load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadStats();
-            loadEligibleOrders();
+        // Close modal on outside click
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
     </script>
 </body>
